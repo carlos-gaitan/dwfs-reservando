@@ -9,9 +9,9 @@ describe("Clase Restaurant", function(){
   beforeEach(function(){
     restaurant = new Restaurant(1, "TAO Uptown", "Asiática", "Nueva York", ["13:00", "15:30", "18:00"], "../img/asiatica1.jpg", [6, 7, 9, 10, 5]);
   })
-  afterEach(function(){
-    console.log("Wow");
-  })
+  // afterEach(function(){
+  //   console.log("Wow");
+  // })
   describe("Reservar Horario", function(){
 
     // it("debe agregar un invitado valido a la lista", function(){
@@ -22,14 +22,14 @@ describe("Clase Restaurant", function(){
     //   expect(listaDeInvitados[listaDeInvitados.length - 1]).to.equal("Diego");
     // })
     it("cuando se reserva horario, este se debe eliminar del arreglo",function(){
-      var cantidadDeElementos = restaurant.horarios.length();
+      var cantidadDeElementos = restaurant.horarios.length;
       console.log(cantidadDeElementos);
       restaurant.reservarHorario("15:30");
       //expect(restaurant.horarios).to.exist("15:30");
       expect(restaurant.horarios).to.eql(["13:00", "18:00"]);
       //la cantidad de elementos del arreglo disminuya o no según corresponda
-      var cantidadDeElementos2 = restaurant.horarios.length();
-      expect(cantidadDeElementos2).to.equal([cantidadDeElementos]);
+      var cantidadDeElementos2 = restaurant.horarios.length;
+      expect(cantidadDeElementos2).to.equal(cantidadDeElementos-1);
 
     })
 
