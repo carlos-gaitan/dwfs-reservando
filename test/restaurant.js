@@ -32,6 +32,7 @@ describe("Clase Restaurant", function(){
       expect(restaurant.horarios).to.eql(["13:00", "15:30", "18:00"]);
     })
   })
+
   describe("Funcion obtenerPuntuacion", function(){
     it("Dado un restaurant con determinadas calificaciones, la puntuación (que es el promedio de ellas) se calcula correctamente.",function(){
       var puntuacion = restaurant.obtenerPuntuacion();
@@ -44,21 +45,61 @@ describe("Clase Restaurant", function(){
         // //expect(restaurant.horarios).to.exist("15:30");
         // expect(puntuacion).to.equal(7.4);
     })
-    
-  // it("Dado un restaurant que no tiene ninguna calificación, la puntuación es igual a 0.",function(){
-  //     var puntuacion = restaurant.obtenerPuntuacion();
-  //     //expect(restaurant.horarios).to.exist("15:30");
-  //     expect("teta").to.equal("culo");
-  //   })
-    // it("dado ",function(){
-    //   restaurant.reservarHorario("15:70");
-    //   expect(restaurant.horarios).to.eql(["13:00", "15:30", "18:00"]);
-    // })
-    //
-    // it("cuando se intenta reservar un horario sin pasar parametro, el arreglo queda igual",function(){
-    //   restaurant.reservarHorario();
-    //   expect(restaurant.horarios).to.eql(["13:00", "15:30", "18:00"]);
-    // })
-    //
   })
+
+  describe("Funcion calificar", function(){
+    it("Agrega una nueva calificación al arreglo de calificaciones.",function(){
+      restaurant = new Restaurant(1, "TAO Uptown", "Asiática", "Nueva York", ["13:00", "15:30", "18:00"], "../img/asiatica1.jpg", [])
+      var calificaciones = 0;
+      for(i = 1; i < 10; i++) {
+        calificaciones = calificaciones + i;
+        restaurant.calificar(i);
+        expect(restaurant.calificaciones.length).to.equal(i)
+      };
+      expect(calificaciones/9).to.equal(restaurant.obtenerPuntuacion());
+    })
+  })
+})
+describe("Clase Listado", function(){
+
+  describe("Funcion buscarRestaurante(id)", function(){
+    it("Dado el id de un restaurante, devuelve el restaurante del listado que posee ese id.",function(){
+        // var puntuacion = restaurant.obtenerPuntuacion();
+        // //expect(restaurant.horarios).to.exist("15:30");
+        // expect(puntuacion).to.equal(7.4);
+    })
+  });
+
+  describe("Funcion obtC()", function(){
+    it("Obtiene (sin repetidos) todos las ciudades en las cuáles hay un restaurante.",function(){
+        // var puntuacion = restaurant.obtenerPuntuacion();
+        // //expect(restaurant.horarios).to.exist("15:30");
+        // expect(puntuacion).to.equal(7.4);
+    })
+  });
+
+  describe("Funcion obtR()", function(){
+    it("Obtiene (sin repetidos) todos los rubros de los restaurantes.",function(){
+        // var puntuacion = restaurant.obtenerPuntuacion();
+        // //expect(restaurant.horarios).to.exist("15:30");
+        // expect(puntuacion).to.equal(7.4);
+    })
+  });
+  describe("Funcion obtH()", function(){
+    it("Otiene (sin repetidos) todos los posibles horarios de reserva de los restaurantes.",function(){
+        // var puntuacion = restaurant.obtenerPuntuacion();
+        // //expect(restaurant.horarios).to.exist("15:30");
+        // expect(puntuacion).to.equal(7.4);
+    })
+  });
+  describe("Funcion obtenerRestaurantes(filtroRubro, filtroCiudad, filtroHorario)", function(){
+    it("Función que se encarga de filtrar los restaurantes según los filtros recibidos.",function(){
+        // var puntuacion = restaurant.obtenerPuntuacion();
+        // //expect(restaurant.horarios).to.exist("15:30");
+        // expect(puntuacion).to.equal(7.4);
+    })
+  });
+
+
+
 })
