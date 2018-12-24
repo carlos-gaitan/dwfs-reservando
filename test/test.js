@@ -200,7 +200,8 @@ describe("Nuevas funcionalidades", function(){
 
   describe('Test precioFinal -> reserva', function() {
     it('Calcula correctamente el precio final', function() {
-      expect(testReserva[0].precioFinal()).to.equal(2310);
+      //expect(testReserva[0].precioFinal()).to.equal(2310);
+      expect(testReserva[0].precioFinal()).to.equal(2450);
       expect(testReserva[1].precioFinal()).to.equal(100);
     });
   });
