@@ -187,7 +187,7 @@ describe("Nuevas funcionalidades", function(){
   beforeEach(function(){
     testReserva  = [
       new Reserva (new Date(2018, 7, 24, 11, 00), 8, 350, "DES1"),
-      new Reserva (new Date(2018, 7, 27, 14, 00), 2, 150, "DES200"),
+      new Reserva (new Date(2018, 7, 27, 14, 100), 2, 150, "DES200"),
     ];
   });
 

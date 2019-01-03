@@ -50,8 +50,8 @@ Reserva.prototype.adicionalPorHorario = function(precioBase) {
 Reserva.prototype.adicionalPorDiaSemana = function(precioBase) {
   //adicional dia de semana
   var diaSemana = this.horario.getUTCDay();
-  //if (diaSemana == 0 || diaSemana == 5 || diaSemana == 6) {
-  if (diaSemana == 1 || diaSemana == 2 || diaSemana == 3) {
+  if (diaSemana == 0 || diaSemana == 5 || diaSemana == 6) {
+  //if (diaSemana == 1 || diaSemana == 2 || diaSemana == 3) {
     return (precioBase * 10 / 100);
   } else {
     return 0;
