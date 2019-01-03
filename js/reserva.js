@@ -9,8 +9,8 @@ Reserva.prototype.precioBase = function() {
   return this.cantidadDePersonas * this.precioPorPersona;
 };
 
+// descuento por cantidad de personas
 Reserva.prototype.descuentoPorCantidadDePersonas = function(precioBase) {
-  // descuento por cantidad de personas
   if (this.cantidadDePersonas >= 4 && this.cantidadDePersonas <= 6) {
     return (precioBase * 5 / 100);
   } else if (this.cantidadDePersonas >= 7 && this.cantidadDePersonas <= 8) {
@@ -21,8 +21,8 @@ Reserva.prototype.descuentoPorCantidadDePersonas = function(precioBase) {
   return 0;
 };
 
+// descuento por codigo
 Reserva.prototype.descuentoPorCodigoDeDescuento = function(precioBase) {
-  // descuento por codigo
   switch (this.codigoDeDescuento) {
     case 'DES15':
       return (precioBase * 15 / 100);
@@ -35,23 +35,22 @@ Reserva.prototype.descuentoPorCodigoDeDescuento = function(precioBase) {
       break;
     default: return 0;
   };
-
 };
 
+//adicional horario
 Reserva.prototype.adicionalPorHorario = function(precioBase) {
-  //adicional horario
-  if ((this.horario >= 13 && this.horario <= 14) || (this.horario >=20 && this.horario <= 21)) {
+  var minutos = (this.horario.getHours() * 60) + this.horario.getMinutes();
+  if ((minutos >= 780 && minutos < 840) || (minutos >= 1200 && minutos < 1260)){
     return (precioBase * 5 / 100);
   } else {
     return 0;
   };
 };
 
+//adicional dia de semana
 Reserva.prototype.adicionalPorDiaSemana = function(precioBase) {
-  //adicional dia de semana
   var diaSemana = this.horario.getUTCDay();
   if (diaSemana == 0 || diaSemana == 5 || diaSemana == 6) {
-  //if (diaSemana == 1 || diaSemana == 2 || diaSemana == 3) {
     return (precioBase * 10 / 100);
   } else {
     return 0;
@@ -59,43 +58,6 @@ Reserva.prototype.adicionalPorDiaSemana = function(precioBase) {
 };
 
 Reserva.prototype.precioFinal = function() {
-
-  // // descuento por cantidad de personas
-  // var descuentos = 0;
-  // if (this.cantidadDePersonas >= 4 && this.cantidadDePersonas <= 6) {
-  //   descuentos += (this.precioBase() * 5 / 100);
-  // } else if (this.cantidadDePersonas >= 7 && this.cantidadDePersonas <= 8) {
-  //   descuentos += (this.precioBase() * 10 / 100);
-  //   } else if (this.cantidadDePersonas > 8) {
-  //   descuentos += (this.precioBase() * 15 / 100);
-  //     };
-
-  // // descuento por codigo
-  // switch (this.codigoDeDescuento) {
-  //   case 'DES15':
-  //     descuentos += (this.precioBase() * 15 / 100);
-  //     break;
-  //   case 'DES200':
-  //     descuentos += 200;
-  //     break;
-  //   case 'DES1':
-  //     descuentos += this.precioPorPersona;
-  //     break;
-  //   default:
-  // };
-
-  // //adicional horario
-  // var adicionales = 0;
-  // if ((this.horario >= 13 && this.horario <= 14) || (this.horario >=20 && this.horario <= 21)) {
-  //   adicionales += (this.precioBase() * 5 / 100);
-  // };
-  // //adicional dia de semana
-  // var diaSemana = this.horario.getUTCDay();
-  // //if (diaSemana == 0 || diaSemana == 5 || diaSemana == 6) {
-  // if (diaSemana == 1 || diaSemana == 2 || diaSemana == 3) {
-  //   adicionales += (this.precioBase() * 10 / 100);
-  // };
-
   var precioBase = this.precioBase();
   var descuentos = this.descuentoPorCantidadDePersonas(precioBase) + this.descuentoPorCodigoDeDescuento(precioBase);
   var adicionales = this.adicionalPorHorario(precioBase) + this.adicionalPorDiaSemana(precioBase);
