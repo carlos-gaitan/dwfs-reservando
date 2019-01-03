@@ -9,7 +9,6 @@ Reserva.prototype.precioBase = function() {
   return this.cantidadDePersonas * this.precioPorPersona;
 };
 
-
 Reserva.prototype.descuentoPorCantidadDePersonas = function(precioBase) {
   // descuento por cantidad de personas
   if (this.cantidadDePersonas >= 4 && this.cantidadDePersonas <= 6) {
@@ -38,6 +37,7 @@ Reserva.prototype.descuentoPorCodigoDeDescuento = function(precioBase) {
   };
 
 };
+
 Reserva.prototype.adicionalPorHorario = function(precioBase) {
   //adicional horario
   if ((this.horario >= 13 && this.horario <= 14) || (this.horario >=20 && this.horario <= 21)) {
