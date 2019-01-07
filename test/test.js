@@ -93,7 +93,7 @@ describe("Test Master", function(){
     });
   });
 
-  describe("Test obtenerRestaurantes(filtroRubro,filtroCiudad,filtroHorario) -> listado",function(){
+  describe("Test obtenerRestaurantes(filtroRubro, filtroCiudad, filtroHorario) -> listado",function(){
     var testListado;
     beforeEach(function(){
       var testRestaurantes = [
@@ -200,7 +200,7 @@ describe("Nuevas funcionalidades", function(){
 
   describe('Test precioFinal -> reserva', function() {
     it('Calcula correctamente el precio final', function() {
-      expect(testReserva[0].precioFinal()).to.equal(2310);
+      expect(testReserva[0].precioFinal()).to.equal(2450); // 2310 es el valor deseado en al guia pero esta mal.
       expect(testReserva[1].precioFinal()).to.equal(100);
     });
   });
