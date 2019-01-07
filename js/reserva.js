@@ -61,6 +61,8 @@ Reserva.prototype.precioFinal = function() {
   var precioBase = this.precioBase();
   var descuentos = this.descuentoPorCantidadDePersonas(precioBase) + this.descuentoPorCodigoDeDescuento(precioBase);
   var adicionales = this.adicionalPorHorario(precioBase) + this.adicionalPorDiaSemana(precioBase);
-
+  
+  console.log("precioBase: ", precioBase, " - descuentos: ",  descuentos, "+ adicionales", adicionales);
+  console.log(precioBase - descuentos + adicionales);
   return precioBase - descuentos + adicionales;
 };
